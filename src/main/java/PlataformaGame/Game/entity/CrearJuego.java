@@ -5,7 +5,6 @@
  */
 package PlataformaGame.Game.entity;
 
-import PlataformaGame.Game.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
@@ -50,6 +49,7 @@ public class CrearJuego implements Serializable{
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties("crearJuegos")
     private User user;
+    
     
     
 }

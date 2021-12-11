@@ -5,13 +5,13 @@
  */
 package PlataformaGame.Game.crudRepository;
 
-import PlataformaGame.Game.entity.Preguntas;
+import PlataformaGame.Game.entity.ParticiparJuego;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author eduar
  */
-public interface PreguntasCrudRepository extends CrudRepository<Preguntas, Integer>{
+public interface partJuegoCrudRepository extends CrudRepository<ParticiparJuego, Integer>{
     
 }

@@ -14,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -34,8 +36,13 @@ public class User {
     private String repeatPassword;
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "user")
-    @JsonIgnoreProperties("username")
+    @JsonIgnoreProperties("user")
     private List<CrearJuego> crearJuegos;
+    
+    @ManyToOne
+    @JoinColumn(name = "participacion_id")
+    @JsonIgnoreProperties("user")
+    private ParticiparJuego participarJuego;
     
     
     public User() {

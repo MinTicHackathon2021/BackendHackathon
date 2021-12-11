@@ -30,14 +30,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class CrearJuegoController {
 
     @Autowired
+    /**
+     * instancia del servicio de crear un juego
+     */
     private CrearJuegoService crearJuegoService;
 
     @GetMapping("/all")
+    /**
+     * Servicio traer todos los juegos
+     */
     public List<CrearJuego> findAllGames() {
         return crearJuegoService.getGames();
     }
 
     @GetMapping("/{id}")
+    /**
+     * Servicio para traer un juego por id
+     */
     public Optional<CrearJuego> findGameId(@PathVariable int id) {
         return crearJuegoService.getGameId(id);
     }

@@ -5,8 +5,8 @@
  */
 package PlataformaGame.Game.controller;
 
-import PlataformaGame.Game.entity.Preguntas;
-import PlataformaGame.Game.service.PreguntasService;
+import PlataformaGame.Game.entity.ParticiparJuego;
+import PlataformaGame.Game.service.PartJuegoService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,26 +26,23 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-@RequestMapping("/api/preguntas")
-public class PreguntasController {
-
+@RequestMapping("/api/participacionJuego")
+public class PartJuegoController {
     @Autowired
-    private PreguntasService preguntasService;
-
+    private PartJuegoService partJuegoService;
+    
     @GetMapping("/all")
-    public List<Preguntas> findAllPreguntas() {
-        return preguntasService.getPreguntas();
-
+    public List<ParticiparJuego>  findAllParticipaciones(){
+        return partJuegoService.getParticipaciones();
     }
-
     @GetMapping("/{id}")
-    public Optional<Preguntas> finPreguntaId(@PathVariable int id) {
-        return preguntasService.getPreguntaId(id);
+    public Optional<ParticiparJuego> findParticipacionId(@PathVariable int id){
+        return partJuegoService.getParticipacionId(id);
+        
     }
-
-    @PostMapping("save")
-    public ResponseEntity savePregunta(@RequestBody Preguntas preguntas) {
-        preguntasService.savePregunta(preguntas);
+    @PostMapping("/save")
+    public ResponseEntity saveParticipacion(@RequestBody ParticiparJuego participarJuego){
+        partJuegoService.saveParticipacion(participarJuego);
         return ResponseEntity.status(201).build();
     }
 }
